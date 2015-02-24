@@ -39,6 +39,8 @@ namespace WindowsFormsApplication1
             dtbal = new DataTable();
             sdabal.Fill(dtbal);
             balanceGrid.DataSource = dtbal;
+
+            UpdateCalculations(null, null);
         }
 
         private void dataUpdate()
@@ -50,7 +52,9 @@ namespace WindowsFormsApplication1
             scbbal = new SqlCommandBuilder(sdabal);
             sdabal.Update(dtbal);
 
+            UpdateCalculations(null, null);
         }
+
         public Form1()
         {
             InitializeComponent();
@@ -58,15 +62,14 @@ namespace WindowsFormsApplication1
         }
 
 
-        private void grid_CellLeave(object sender, DataGridViewCellEventArgs e)
+        private void gridCellLeave(object sender, DataGridViewCellEventArgs e)
         {
             dataUpdate();
-            dataRefresh();
+            UpdateCalculations(null, null);
         }
 
-        private void update_Calculations(object sender, EventArgs e)
+        private void UpdateCalculations(object sender, EventArgs e)
         {
-            dataUpdate();
 
             decimal expenseSum = 0;
             decimal incomeSum = 0;
@@ -140,24 +143,26 @@ namespace WindowsFormsApplication1
             }
         }
 
-        private void deleteRow_Update(object sender, DataGridViewRowEventArgs e)
+        private void deleteRowUpdate(object sender, DataGridViewRowEventArgs e)
         {
             dataUpdate();
             dataRefresh();
         }
 
-        private void refreshButton_Click(object sender, EventArgs e)
+        private void refreshButtonClick(object sender, EventArgs e)
         {
             dataRefresh();
+            UpdateCalculations(null, null);
         }
 
-        private void doneClose_Click(object sender, EventArgs e)
+        private void doneCloseClick(object sender, EventArgs e)
         {
             dataRefresh();
             dataUpdate();
             this.Close();
         }
 
+        
         //private void validating_Cell(object sender, DataGridViewCellValidatingEventArgs e)
         //{
         //    expenseGrid.Rows[e.RowIndex].ErrorText = "";
@@ -210,9 +215,6 @@ namespace WindowsFormsApplication1
         //    incomeGrid.Rows[e.RowIndex].ErrorText = "";
         //    balanceGrid.Rows[e.RowIndex].ErrorText = "";
         //}
-
-
-
 
     }
 }

@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.updateButton = new System.Windows.Forms.Button();
             this.refreshButton = new System.Windows.Forms.Button();
             this.doneClose = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -53,37 +53,22 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.currBalTab = new System.Windows.Forms.TabPage();
             this.incomeTab = new System.Windows.Forms.TabPage();
-            this.balanceGrid = new System.Windows.Forms.DataGridView();
             this.incomeGrid = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
+            this.currBalTab = new System.Windows.Forms.TabPage();
+            this.balanceGrid = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
             this.expenseGrid = new System.Windows.Forms.DataGridView();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
-            this.currBalTab.SuspendLayout();
             this.incomeTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.balanceGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.incomeGrid)).BeginInit();
+            this.currBalTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.balanceGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.expenseGrid)).BeginInit();
             this.SuspendLayout();
-            // 
-            // updateButton
-            // 
-            this.updateButton.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.updateButton.FlatAppearance.BorderColor = System.Drawing.Color.Green;
-            this.updateButton.FlatAppearance.BorderSize = 2;
-            this.updateButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MediumSpringGreen;
-            this.updateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.updateButton.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updateButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.updateButton.Location = new System.Drawing.Point(664, 621);
-            this.updateButton.Name = "updateButton";
-            this.updateButton.Size = new System.Drawing.Size(131, 29);
-            this.updateButton.TabIndex = 1;
-            this.updateButton.Text = "Update Records";
-            this.updateButton.UseVisualStyleBackColor = false;
-            this.updateButton.Click += new System.EventHandler(this.update_Calculations);
             // 
             // refreshButton
             // 
@@ -94,13 +79,13 @@
             this.refreshButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.refreshButton.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.refreshButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.refreshButton.Location = new System.Drawing.Point(801, 621);
+            this.refreshButton.Location = new System.Drawing.Point(801, 628);
             this.refreshButton.Name = "refreshButton";
             this.refreshButton.Size = new System.Drawing.Size(131, 29);
             this.refreshButton.TabIndex = 1;
             this.refreshButton.Text = "Refresh Records";
             this.refreshButton.UseVisualStyleBackColor = false;
-            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
+            this.refreshButton.Click += new System.EventHandler(this.refreshButtonClick);
             // 
             // doneClose
             // 
@@ -111,16 +96,17 @@
             this.doneClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.doneClose.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.doneClose.ForeColor = System.Drawing.SystemColors.Control;
-            this.doneClose.Location = new System.Drawing.Point(938, 621);
+            this.doneClose.Location = new System.Drawing.Point(938, 628);
             this.doneClose.Name = "doneClose";
             this.doneClose.Size = new System.Drawing.Size(131, 29);
             this.doneClose.TabIndex = 1;
             this.doneClose.Text = "Done";
             this.doneClose.UseVisualStyleBackColor = false;
-            this.doneClose.Click += new System.EventHandler(this.doneClose_Click);
+            this.doneClose.Click += new System.EventHandler(this.doneCloseClick);
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.panel1.Controls.Add(this.expenseTotalL);
             this.panel1.Controls.Add(this.expenseTotalV);
             this.panel1.Controls.Add(this.afterExpTotalV);
@@ -131,7 +117,7 @@
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Location = new System.Drawing.Point(506, 415);
+            this.panel1.Location = new System.Drawing.Point(502, 442);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(563, 180);
             this.panel1.TabIndex = 6;
@@ -254,8 +240,55 @@
             this.tabControl1.Location = new System.Drawing.Point(506, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(563, 397);
+            this.tabControl1.Size = new System.Drawing.Size(563, 424);
             this.tabControl1.TabIndex = 14;
+            // 
+            // incomeTab
+            // 
+            this.incomeTab.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.incomeTab.Controls.Add(this.incomeGrid);
+            this.incomeTab.Controls.Add(this.button1);
+            this.incomeTab.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.incomeTab.Location = new System.Drawing.Point(4, 23);
+            this.incomeTab.Name = "incomeTab";
+            this.incomeTab.Padding = new System.Windows.Forms.Padding(3);
+            this.incomeTab.Size = new System.Drawing.Size(555, 397);
+            this.incomeTab.TabIndex = 1;
+            this.incomeTab.Text = "Income";
+            // 
+            // incomeGrid
+            // 
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 9.75F);
+            this.incomeGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.incomeGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.incomeGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.incomeGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.incomeGrid.Location = new System.Drawing.Point(3, 3);
+            this.incomeGrid.Name = "incomeGrid";
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.incomeGrid.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.incomeGrid.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.incomeGrid.Size = new System.Drawing.Size(549, 353);
+            this.incomeGrid.TabIndex = 14;
+            this.incomeGrid.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridCellLeave);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Green;
+            this.button1.FlatAppearance.BorderSize = 2;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MediumSpringGreen;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.Control;
+            this.button1.Location = new System.Drawing.Point(384, 362);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(165, 29);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Commit Rows";
+            this.toolTip1.SetToolTip(this.button1, "Commit the row, get the id, calculate the taxed income amount.");
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.refreshButtonClick);
             // 
             // currBalTab
             // 
@@ -264,22 +297,10 @@
             this.currBalTab.Location = new System.Drawing.Point(4, 23);
             this.currBalTab.Name = "currBalTab";
             this.currBalTab.Padding = new System.Windows.Forms.Padding(3);
-            this.currBalTab.Size = new System.Drawing.Size(555, 370);
+            this.currBalTab.Size = new System.Drawing.Size(555, 397);
             this.currBalTab.TabIndex = 0;
             this.currBalTab.Text = "Current Account Balances";
             this.currBalTab.UseVisualStyleBackColor = true;
-            // 
-            // incomeTab
-            // 
-            this.incomeTab.Controls.Add(this.incomeGrid);
-            this.incomeTab.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.incomeTab.Location = new System.Drawing.Point(4, 23);
-            this.incomeTab.Name = "incomeTab";
-            this.incomeTab.Padding = new System.Windows.Forms.Padding(3);
-            this.incomeTab.Size = new System.Drawing.Size(555, 370);
-            this.incomeTab.TabIndex = 1;
-            this.incomeTab.Text = "Income";
-            this.incomeTab.UseVisualStyleBackColor = true;
             // 
             // balanceGrid
             // 
@@ -294,24 +315,9 @@
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.balanceGrid.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.balanceGrid.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.balanceGrid.Size = new System.Drawing.Size(549, 364);
+            this.balanceGrid.Size = new System.Drawing.Size(549, 391);
             this.balanceGrid.TabIndex = 15;
-            // 
-            // incomeGrid
-            // 
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 9.75F);
-            this.incomeGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.incomeGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.incomeGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.incomeGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.incomeGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.incomeGrid.Location = new System.Drawing.Point(3, 3);
-            this.incomeGrid.Name = "incomeGrid";
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.incomeGrid.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.incomeGrid.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.incomeGrid.Size = new System.Drawing.Size(549, 364);
-            this.incomeGrid.TabIndex = 14;
+            this.balanceGrid.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridCellLeave);
             // 
             // label4
             // 
@@ -362,6 +368,8 @@
             this.expenseGrid.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 10F);
             this.expenseGrid.Size = new System.Drawing.Size(477, 616);
             this.expenseGrid.TabIndex = 15;
+            this.expenseGrid.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridCellLeave);
+            this.expenseGrid.RowValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridCellLeave);
             // 
             // Form1
             // 
@@ -369,14 +377,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.ClientSize = new System.Drawing.Size(1081, 662);
+            this.ClientSize = new System.Drawing.Size(1081, 666);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.expenseGrid);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.doneClose);
-            this.Controls.Add(this.updateButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
@@ -385,10 +392,10 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
-            this.currBalTab.ResumeLayout(false);
             this.incomeTab.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.balanceGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.incomeGrid)).EndInit();
+            this.currBalTab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.balanceGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.expenseGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -397,7 +404,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Button updateButton;
         private System.Windows.Forms.Button refreshButton;
         private System.Windows.Forms.Button doneClose;
         private System.Windows.Forms.Panel panel1;
@@ -418,6 +424,8 @@
         private System.Windows.Forms.DataGridView incomeGrid;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView expenseGrid;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 
