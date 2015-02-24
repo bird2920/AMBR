@@ -33,5 +33,17 @@ namespace WindowsFormsApplication1.Properties {
                 return ((string)(this["ambrConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string primaryAccount {
+            get {
+                return ((string)(this["primaryAccount"]));
+            }
+            set {
+                this["primaryAccount"] = value;
+            }
+        }
     }
 }

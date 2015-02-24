@@ -78,9 +78,17 @@ namespace WindowsFormsApplication1
 
             try
             {
-                for (int expenseLoop = 0; expenseLoop < expenseGrid.Rows.Count; ++expenseLoop)
+                //Expense loop
+                for (int i = 0; i < expenseGrid.Rows.Count; ++i)
                 {
-                    expenseSum += Convert.ToDecimal(expenseGrid.Rows[expenseLoop].Cells[1].Value);
+                    expenseSum += Convert.ToDecimal(expenseGrid.Rows[i].Cells[1].Value);
+                }
+
+                //Income loop
+                for (int i = 0; i < incomeGrid.Rows.Count; ++i)
+                {
+                    incomeSum += Convert.ToDecimal(incomeGrid.Rows[i].Cells[1].Value);
+                    incomeAftTax += Convert.ToDecimal(incomeGrid.Rows[i].Cells[3].Value);
                 }
             }
             catch
@@ -88,35 +96,23 @@ namespace WindowsFormsApplication1
                 Console.Write(expenseSum);
             }
 
-            try
-            {
-                for (int incomeLoop = 0; incomeLoop < incomeGrid.Rows.Count; ++incomeLoop)
-                {
-                    incomeSum += Convert.ToDecimal(incomeGrid.Rows[incomeLoop].Cells[1].Value);
-                }
-            }
-            catch
-            {
-                Console.Write(incomeSum);
-            }
 
             try
             {
-                for (int aftTaxLoop = 0; aftTaxLoop < incomeGrid.Rows.Count; ++aftTaxLoop)
-                {
-                    incomeAftTax += Convert.ToDecimal(incomeGrid.Rows[aftTaxLoop].Cells[3].Value);
-                }
-            }
-            catch
-            {
-                Console.Write(incomeAftTax);
-            }
 
-            try
-            {
-                for (int currLoop = 0; currLoop < balanceGrid.Rows.Count; ++currLoop)
+                for (int i = 0; i < balanceGrid.Rows.Count; ++i)
                 {
-                    currBalance += Convert.ToDecimal(balanceGrid.Rows[currLoop].Cells[1].Value);
+                    if (primaryAccount.Text == "")
+                    {
+                        currBalance += Convert.ToDecimal(balanceGrid.Rows[i].Cells[1].Value);
+                    }
+                    else
+                    {
+                        if (Convert.ToInt32(balanceGrid.Rows[i].Cells[3].Value) == Convert.ToInt32(primaryAccount.Text))
+                        {
+                            currBalance = Convert.ToDecimal(balanceGrid.Rows[i].Cells[1].Value);
+                        }
+                    }
                 }
             }
             catch
@@ -157,12 +153,11 @@ namespace WindowsFormsApplication1
 
         private void doneCloseClick(object sender, EventArgs e)
         {
-            dataRefresh();
             dataUpdate();
             this.Close();
         }
 
-        
+
         //private void validating_Cell(object sender, DataGridViewCellValidatingEventArgs e)
         //{
         //    expenseGrid.Rows[e.RowIndex].ErrorText = "";
