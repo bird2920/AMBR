@@ -40,6 +40,9 @@ namespace WindowsFormsApplication1
             sdabal.Fill(dtbal);
             balanceGrid.DataSource = dtbal;
 
+            // Get the saved value from the application's settings
+            primaryAccount.Text = Properties.Settings.Default.primaryAccount;
+
             UpdateCalculations(null, null);
         }
 
@@ -75,6 +78,7 @@ namespace WindowsFormsApplication1
             decimal incomeSum = 0;
             decimal incomeAftTax = 0;
             decimal currBalance = 0;
+           // string primaryAccountS = Properties.Settings.Default.primaryAccount;
 
             try
             {
@@ -153,63 +157,14 @@ namespace WindowsFormsApplication1
 
         private void doneCloseClick(object sender, EventArgs e)
         {
+            // Save any un-commited changes
             dataUpdate();
+            // Save the value in the text box in the application's settings
+            Properties.Settings.Default.primaryAccount = primaryAccount.Text;
+            // Tell the application to save the new values
+            Properties.Settings.Default.Save();
             this.Close();
         }
-
-
-        //private void validating_Cell(object sender, DataGridViewCellValidatingEventArgs e)
-        //{
-        //    expenseGrid.Rows[e.RowIndex].ErrorText = "";
-        //    int newInteger;
-
-        //    // Don't try to validate the 'new row' until finished 
-        //    // editing since there
-        //    // is not any point in validating its initial value.
-        //    if (expenseGrid.Rows[e.RowIndex].IsNewRow) { return; }
-        //    if (!int.TryParse(e.FormattedValue.ToString(),
-        //        out newInteger) || newInteger < 0)
-        //    {
-        //        e.Cancel = true;
-        //        expenseGrid.Rows[e.RowIndex].ErrorText = "the value must be a non-negative integer";
-        //    }
-
-        //    incomeGrid.Rows[e.RowIndex].ErrorText = "";
-        //    int newInteger1;
-
-        //    // Don't try to validate the 'new row' until finished 
-        //    // editing since there
-        //    // is not any point in validating its initial value.
-        //    if (incomeGrid.Rows[e.RowIndex].IsNewRow) { return; }
-        //    if (!int.TryParse(e.FormattedValue.ToString(),
-        //        out newInteger1) || newInteger1 < 0)
-        //    {
-        //        e.Cancel = true;
-        //        incomeGrid.Rows[e.RowIndex].ErrorText = "the value must be a non-negative integer";
-        //    }
-
-        //    balanceGrid.Rows[e.RowIndex].ErrorText = "";
-        //    int newInteger2;
-
-        //    // Don't try to validate the 'new row' until finished 
-        //    // editing since there
-        //    // is not any point in validating its initial value.
-        //    if (balanceGrid.Rows[e.RowIndex].IsNewRow) { return; }
-        //    if (!int.TryParse(e.FormattedValue.ToString(),
-        //        out newInteger2) || newInteger2 < 0)
-        //    {
-        //        e.Cancel = true;
-        //        balanceGrid.Rows[e.RowIndex].ErrorText = "the value must be a non-negative integer";
-        //    }
-
-        //}
-
-        //private void leave_Cell(object sender, DataGridViewCellEventArgs e)
-        //{
-        //    expenseGrid.Rows[e.RowIndex].ErrorText = "";
-        //    incomeGrid.Rows[e.RowIndex].ErrorText = "";
-        //    balanceGrid.Rows[e.RowIndex].ErrorText = "";
-        //}
 
     }
 }

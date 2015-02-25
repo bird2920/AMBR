@@ -38,6 +38,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.refreshButton = new System.Windows.Forms.Button();
             this.doneClose = new System.Windows.Forms.Button();
@@ -110,6 +112,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.expenseTotalL);
             this.panel1.Controls.Add(this.expenseTotalV);
             this.panel1.Controls.Add(this.afterExpTotalV);
@@ -284,12 +287,20 @@
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 9.75F);
             this.incomeGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.incomeGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.incomeGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.incomeGrid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.incomeGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.incomeGrid.DefaultCellStyle = dataGridViewCellStyle2;
             this.incomeGrid.Location = new System.Drawing.Point(3, 3);
             this.incomeGrid.Name = "incomeGrid";
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.incomeGrid.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.incomeGrid.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.incomeGrid.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 10F);
             this.incomeGrid.Size = new System.Drawing.Size(549, 353);
             this.incomeGrid.TabIndex = 14;
@@ -308,7 +319,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(139, 29);
             this.button1.TabIndex = 1;
-            this.button1.Text = "Commit Rows";
+            this.button1.Text = "Calculate Tax";
             this.toolTip1.SetToolTip(this.button1, "Commit the row, get the id, calculate the taxed income amount.");
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.refreshButtonClick);
@@ -330,11 +341,12 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(252, 372);
+            this.label2.Location = new System.Drawing.Point(343, 372);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(191, 14);
+            this.label2.Size = new System.Drawing.Size(100, 14);
             this.label2.TabIndex = 17;
-            this.label2.Text = "Use totals from this account only:";
+            this.label2.Text = "Primary Account:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // primaryAccount
             // 
@@ -342,19 +354,29 @@
             this.primaryAccount.Name = "primaryAccount";
             this.primaryAccount.Size = new System.Drawing.Size(100, 22);
             this.primaryAccount.TabIndex = 16;
-            this.toolTip1.SetToolTip(this.primaryAccount, "Enter Account ID");
+            this.toolTip1.SetToolTip(this.primaryAccount, "If account ID entered the After Expense Total\r\nwill only reflect the total from t" +
+        "he account specified.\r\nOtherwise it will calculate the total of all current acco" +
+        "unt balances.");
             // 
             // balanceGrid
             // 
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 9.75F);
-            this.balanceGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Tahoma", 9.75F);
+            this.balanceGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.balanceGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.balanceGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.balanceGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.balanceGrid.DefaultCellStyle = dataGridViewCellStyle5;
             this.balanceGrid.Location = new System.Drawing.Point(3, 3);
             this.balanceGrid.Name = "balanceGrid";
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.balanceGrid.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.balanceGrid.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.balanceGrid.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 10F);
             this.balanceGrid.Size = new System.Drawing.Size(549, 353);
             this.balanceGrid.TabIndex = 15;
@@ -373,29 +395,11 @@
             // 
             // expenseGrid
             // 
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 9.75F);
-            this.expenseGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Tahoma", 9.75F);
+            this.expenseGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.expenseGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.expenseGrid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.expenseGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.expenseGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.expenseGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Tahoma", 8.25F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.expenseGrid.DefaultCellStyle = dataGridViewCellStyle7;
-            this.expenseGrid.Location = new System.Drawing.Point(12, 34);
-            this.expenseGrid.Name = "expenseGrid";
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -403,9 +407,29 @@
             dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.expenseGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.expenseGrid.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            this.expenseGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.expenseGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Tahoma", 8.25F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.NullValue = null;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.expenseGrid.DefaultCellStyle = dataGridViewCellStyle9;
+            this.expenseGrid.Location = new System.Drawing.Point(12, 34);
+            this.expenseGrid.Name = "expenseGrid";
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.expenseGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.expenseGrid.RowsDefaultCellStyle = dataGridViewCellStyle11;
             this.expenseGrid.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 10F);
             this.expenseGrid.Size = new System.Drawing.Size(477, 616);
             this.expenseGrid.TabIndex = 15;
