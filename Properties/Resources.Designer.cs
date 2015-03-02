@@ -69,25 +69,5 @@ namespace WindowsFormsApplication1.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _1424913915_arrow_cycle {
-            get {
-                object obj = ResourceManager.GetObject("1424913915_arrow_cycle", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _1424913915_arrow_cycle1 {
-            get {
-                object obj = ResourceManager.GetObject("1424913915_arrow_cycle1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }
